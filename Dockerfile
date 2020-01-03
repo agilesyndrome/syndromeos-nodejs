@@ -14,7 +14,9 @@ RUN curl -LO https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linu
 ENV PATH ${PATH}:/nodejs/bin
 
 COPY ./src /data/src
-WORKDIR /app
 
-RUN npm install
+RUN cd /data/src \
+ && npm install
+
+WORKDIR /app
 

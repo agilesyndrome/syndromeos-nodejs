@@ -1,0 +1,13 @@
+TOOL_NAME="${0}"
+TOOL_CONTAINER=dev
+
+if [ "${0}" == "./bin/@" ]; then
+    TOOL_NAME="bash"
+fi
+
+TOOL_PATH=$(echo ${TOOL_NAME} | sed 's:./bin/::')
+docker run \
+    -v ${PWD}/src:/data/src \
+    -p ${DEV_PORT_LOCAL}:${DEV_PORT} \
+    -it ${SYNDROME_PROJECT}:${TOOL_CONTAINER} \
+    ${TOOL_PATH} ${@}

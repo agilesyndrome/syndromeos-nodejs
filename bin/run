@@ -1,0 +1,8 @@
+TOOL_NAME="${0}"
+
+TOOL_PATH=$(echo ${TOOL_NAME} | sed 's:./bin/::')
+docker run \
+    -v ${PWD}/src:/data/src \
+    -p 8443:443 \
+    -p 8080:80 \
+    -it ${SYNDROME_PROJECT}:latest

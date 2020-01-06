@@ -1,4 +1,4 @@
-FROM agilesyndrome/syndromeos:latest
+FROM docker.pkg.github.com/agilesyndrome/syndromeos-base/syndromeos:latest
 
 ARG nodeVersion=12.14.0
 ENV NODE_VERSION=${nodeVersion}

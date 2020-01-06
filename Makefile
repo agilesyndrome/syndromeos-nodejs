@@ -1,11 +1,7 @@
 docker:
-	docker build --build-arg nodeVersion=$(NODE_VERSION) -t agilesyndrome/$(SYNDROME_PROJECT):$(NODE_VERSION) .
+	docker build --build-arg nodeVersion=$(NODE_VERSION) -t docker.pkg.github.com/agilesyndrome/syndromeos-nodejs/node:$(NODE_VERSION) .
 
 build: docker
 
-clean:
-	rm -rf built
-	mkdir -p built
-
-publish: clean
-	docker push agilesyndrome/$(SYNDROME_PROJECT):$(NODE_VERSION)	
+publish: 
+	docker push docker.pkg.github.com/agilesyndrome/syndromeos-nodejs/node:$(NODE_VERSION)

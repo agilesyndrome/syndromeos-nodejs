@@ -16,7 +16,13 @@ jobs:
       env:
         DOCKER_USERNAME: ${{ secrets.GITHUB_BUILDER }}
         DOCKER_PASSWORD: ${{ secrets.GITHUB_BUILDER_TOKEN }}
-    - name: Build all the things
-      run: ./build.sh
-
-
+    - name: NodeJS 8.17.0
+      run: make NODE_VERSION=8.17.0 ci
+    - name: NodeJS 10.18.0
+      run: make NODE_VERSION=10.18.0 ci
+    - name: NodeJS 11.15.0
+      run: make NODE_VERSION=11.15.0 ci
+    - name: NodeJS 12.13.1
+      run: make NODE_VERSION=12.13.1 ci
+    - name: NodeJS 13.5.0
+      run: make NODE_VERSION=13.5.0 ci
